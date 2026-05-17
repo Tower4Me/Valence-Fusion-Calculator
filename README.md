@@ -4,7 +4,7 @@ A lightweight, offline-capable browser tool for [Warframe](https://www.warframe.
 
 ---
 
-Live Demo: https://tower4me.github.io/Valence-Fusion-Calculator/
+Valence Fusion Rechner: https://tower4me.github.io/Valence-Fusion-Calculator/
 
 ---
 
