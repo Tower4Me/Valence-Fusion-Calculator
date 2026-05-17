@@ -3,6 +3,8 @@
 A lightweight, offline-capable browser tool for [Warframe](https://www.warframe.com) players to calculate Valence Fusion bonus results and track 60% weapon progress.
 
 ---
+Valence Fusion Calculator: https://tower4me.github.io/Valence-Fusion-Calculator/
+---
 
 ## Features
 
