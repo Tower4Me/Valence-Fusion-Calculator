@@ -631,6 +631,16 @@
     }
     .weapon-item.checked .weapon-checkbox-tick { display: block; }
 
+    .weapon-img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      flex-shrink: 0;
+      opacity: 0.85;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+    }
+    .weapon-item.checked .weapon-img { opacity: 0.35; }
+
     .weapon-name {
       font-size: 13px;
       font-weight: 500;
@@ -1149,6 +1159,62 @@
       }
     };
 
+    // Image filename mapping
+    const WEAPON_IMG = {
+      // Kuva
+      "kuva:Bramma":       "images/kuva/120px-KuvaBramma.png",
+      "kuva:Chakkhurr":    "images/kuva/120px-KuvaChakkhurr.png",
+      "kuva:Drakgoon":     "images/kuva/120px-KuvaDrakgoon.png",
+      "kuva:Hek":          "images/kuva/120px-KuvaHek.png",
+      "kuva:Hind":         "images/kuva/120px-KuvaHind.png",
+      "kuva:Karak":        "images/kuva/120px-KuvaKarak.png",
+      "kuva:Kohm":         "images/kuva/120px-KuvaKohm.png",
+      "kuva:Ogris":        "images/kuva/120px-KuvaOgris.png",
+      "kuva:Quartakk":     "images/kuva/120px-KuvaQuartakk.png",
+      "kuva:Sobek":        "images/kuva/120px-KuvaSobek.png",
+      "kuva:Tonkor":       "images/kuva/120px-KuvaTonkor.png",
+      "kuva:Zarr":         "images/kuva/120px-KuvaZarr.png",
+      "kuva:Brakk":        "images/kuva/120px-KuvaBrakk.png",
+      "kuva:Kraken":       "images/kuva/120px-KuvaKraken.png",
+      "kuva:Nukor":        "images/kuva/120px-KuvaNukor.png",
+      "kuva:Seer":         "images/kuva/120px-KuvaSeer.png",
+      "kuva:Twin Stubbas": "images/kuva/120px-KuvaTwinStubbas.png",
+      "kuva:Ghoulsaw":     "images/kuva/120px-KuvaGhoulsaw.png",
+      "kuva:Shildeg":      "images/kuva/120px-KuvaShildeg.png",
+      // Tenet
+      "tenet:Arca Plasmor":"images/tenet/120px-TenetArcaPlasmor.png",
+      "tenet:Envoy":       "images/tenet/120px-TenetEnvoy.png",
+      "tenet:Flux Rifle":  "images/tenet/120px-TenetFluxRifle.png",
+      "tenet:Glaxion":     "images/tenet/120px-TenetGlaxion.png",
+      "tenet:Quanta":      "images/tenet/120px-TenetQuanta.png",
+      "tenet:Tetra":       "images/tenet/120px-TenetTetra.png",
+      "tenet:Cycron":      "images/tenet/120px-TenetCycron.png",
+      "tenet:Detron":      "images/tenet/120px-TenetDetron.png",
+      "tenet:Diplos":      "images/tenet/120px-TenetDiplos.png",
+      "tenet:Plinx":       "images/tenet/120px-TenetPlinx.png",
+      "tenet:Spirex":      "images/tenet/120px-TenetSpirex.png",
+      "tenet:Agendus":     "images/tenet/120px-TenetAgendus.png",
+      "tenet:Exec":        "images/tenet/120px-TenetExec.png",
+      "tenet:Ferrox":      "images/tenet/120px-TenetFerrox.png",
+      "tenet:Grigori":     "images/tenet/120px-TenetGrigori.png",
+      "tenet:Livia":       "images/tenet/120px-TenetLivia.png",
+      // Coda
+      "coda:Bassocyst":    "images/coda/120px-CodaBassocyst.png",
+      "coda:Bubonico":     "images/coda/120px-CodaBubonico.png",
+      "coda:Hema":         "images/coda/120px-CodaHema.png",
+      "coda:Sporothrix":   "images/coda/120px-CodaSporothrix.png",
+      "coda:Synapse":      "images/coda/120px-CodaSynapse.png",
+      "coda:Catabolyst":   "images/coda/120px-CodaCatabolyst.png",
+      "coda:Dual Torxica": "images/coda/120px-DualCodaTorxica.png",
+      "coda:Pox":          "images/coda/120px-CodaPox.png",
+      "coda:Tysis":        "images/coda/120px-CodaTysis.png",
+      "coda:Caustacyst":   "images/coda/120px-CodaCaustacyst.png",
+      "coda:Hirudo":       "images/coda/120px-CodaHirudo.png",
+      "coda:Mire":         "images/coda/120px-CodaMire.png",
+      "coda:Motovore":     "images/coda/120px-CodaMotovore.png",
+      "coda:Pathocyst":    "images/coda/120px-CodaPathocyst.png",
+    };
+
     // count total
     const TOTAL = Object.values(WEAPONS).reduce((a,f) => a + f.primary.length + f.secondary.length + f.melee.length, 0);
 
@@ -1235,8 +1301,10 @@
         const item = document.createElement("div");
         item.className = "weapon-item" + (isOn ? " checked" : "");
         item.dataset.key = key;
+        const imgSrc = WEAPON_IMG[fid + ":" + name];
         item.innerHTML = `
           <div class="weapon-checkbox"><span class="weapon-checkbox-tick">✓</span></div>
+          ${imgSrc ? `<img src="${imgSrc}" class="weapon-img" alt="${name}">` : ""}
           <span class="weapon-name">${name}</span>
         `;
         item.addEventListener("click", () => toggleWeapon(fid, type, name));
