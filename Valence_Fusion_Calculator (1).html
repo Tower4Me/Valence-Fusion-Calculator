@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valence Fusion Rechner</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,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">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ─── LIGHT THEME ─── */
+    :root {
+      --bg:               #f0f4f8;
+      --bg-grad-1:        rgba(37, 99, 235, 0.10);
+      --bg-grad-2:        rgba(99, 102, 241, 0.08);
+      --bg-grad-3:        rgba(34, 211, 238, 0.07);
+      --surface:          rgba(255,255,255,0.82);
+      --surface-strong:   rgba(255,255,255,0.96);
+      --border:           rgba(15,23,42,0.09);
+      --text:             #0f172a;
+      --muted:            #4a5568;
+      --input-bg:         rgba(255,255,255,0.75);
+      --btn-primary-bg:   #0f172a;
+      --btn-primary-text: #ffffff;
+      --btn-sec-bg:       rgba(15,23,42,0.06);
+      --btn-sec-text:     #0f172a;
+      --btn-sec-border:   rgba(15,23,42,0.15);
+      --result-bg:        rgba(255,255,255,0.65);
+      --shadow:           0 24px 56px rgba(15,23,42,0.10);
+      --accent:           #2563eb;
+      --accent-glow:      rgba(37,99,235,0.18);
+      --error:            #b91c1c;
+      --error-bg:         rgba(185,28,28,0.07);
+      --ring:             rgba(37,99,235,0.22);
+      --cyan:             #06b6d4;
+      --logo-top:         #e2e8f0;
+      --logo-shell:       rgba(10,20,42,0.14);
+      --warframe-text:    #1e293b;
+      --divider:          rgba(15,23,42,0.08);
+      --tag-bg:           rgba(37,99,235,0.08);
+      --tag-text:         #1e40af;
+      color-scheme: light;
+    }
+
+    /* ─── DARK THEME ─── */
+    body.dark {
+      --bg:               #060d1a;
+      --bg-grad-1:        rgba(37,99,235,0.16);
+      --bg-grad-2:        rgba(99,102,241,0.12);
+      --bg-grad-3:        rgba(34,211,238,0.09);
+      --surface:          rgba(8,18,40,0.80);
+      --surface-strong:   rgba(10,21,48,0.94);
+      --border:           rgba(148,163,184,0.13);
+      --text:             #e2e8f0;
+      --muted:            #8897b2;
+      --input-bg:         rgba(3,9,24,0.75);
+      --btn-primary-bg:   #e2e8f0;
+      --btn-primary-text: #0f172a;
+      --btn-sec-bg:       rgba(148,163,184,0.10);
+      --btn-sec-text:     #e2e8f0;
+      --btn-sec-border:   rgba(148,163,184,0.18);
+      --result-bg:        rgba(3,9,24,0.50);
+      --shadow:           0 24px 56px rgba(0,0,0,0.45);
+      --accent:           #60a5fa;
+      --accent-glow:      rgba(96,165,250,0.20);
+      --error:            #fca5a5;
+      --error-bg:         rgba(252,165,165,0.07);
+      --ring:             rgba(96,165,250,0.20);
+      --cyan:             #22d3ee;
+      --logo-top:         #fbbf24;
+      --logo-shell:       rgba(255,255,255,0.10);
+      --warframe-text:    #94a3b8;
+      --divider:          rgba(148,163,184,0.10);
+      --tag-bg:           rgba(96,165,250,0.10);
+      --tag-text:         #93c5fd;
+      color-scheme: dark;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { min-height: 100%; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background:
+        radial-gradient(ellipse 60% 40% at 10% 10%, var(--bg-grad-1), transparent),
+        radial-gradient(ellipse 50% 35% at 90% 5%,  var(--bg-grad-2), transparent),
+        radial-gradient(ellipse 40% 30% at 50% 90%, var(--bg-grad-3), transparent),
+        var(--bg);
+      color: var(--text);
+      padding: 32px 16px 64px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .wrap {
+      max-width: 840px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* ─── CARD ─── */
+    .card {
+      background: var(--surface);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* ─── TOPBAR ─── */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .header-left { min-width: 0; }
+
+    .page-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(26px, 5vw, 38px);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      line-height: 1.05;
+      margin-bottom: 6px;
+      background: linear-gradient(135deg, var(--text) 40%, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    /* ─── CONTROLS ─── */
+    .ctrl {
+      border: 1px solid var(--border);
+      background: var(--surface-strong);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 9px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      appearance: none;
+      -webkit-appearance: none;
+      white-space: nowrap;
+    }
+    .ctrl:hover { transform: translateY(-1px); box-shadow: 0 4px 12px var(--accent-glow); }
+    .ctrl:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px var(--ring); }
+
+    /* ─── FORMULA BANNER ─── */
+    .formula {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      padding: 13px 16px;
+      border-radius: 14px;
+      background: var(--surface-strong);
+      border: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .formula-icon {
+      width: 28px; height: 28px;
+      background: var(--tag-bg);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 13px;
+    }
+    .formula strong { color: var(--text); font-weight: 700; }
+
+    /* ─── GRID ─── */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .field { display: flex; flex-direction: column; gap: 8px; }
+
+    label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    input {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 16px;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--input-bg);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+    input::placeholder { color: var(--muted); opacity: 1; font-weight: 500; }
+    input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px var(--ring); }
+    input.invalid { border-color: var(--error); box-shadow: 0 0 0 4px rgba(185,28,28,0.12); }
+
+    /* ─── ACTIONS ─── */
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .btn-primary, .btn-secondary {
+      border: none;
+      border-radius: 14px;
+      padding: 13px 22px;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: 'Rajdhani', sans-serif;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+    }
+    .btn-primary:hover  { transform: translateY(-2px); box-shadow: 0 8px 20px var(--accent-glow); }
+    .btn-secondary:hover { transform: translateY(-1px); }
+    .btn-primary:focus, .btn-secondary:focus { outline: none; box-shadow: 0 0 0 4px var(--ring); }
+    .btn-primary:active  { transform: translateY(0); }
+    .btn-secondary:active { transform: translateY(0); }
+
+    .btn-primary {
+      background: var(--btn-primary-bg);
+      color: var(--btn-primary-text);
+    }
+    .btn-secondary {
+      background: var(--btn-sec-bg);
+      color: var(--btn-sec-text);
+      border: 1px solid var(--btn-sec-border);
+    }
+
+    /* ─── RESULT ─── */
+    .result {
+      background: var(--result-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 16px;
+      transition: background 0.3s ease, border-color 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .result::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--cyan));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .result.has-value::before { opacity: 1; }
+    .result.error::before { background: var(--error); opacity: 1; }
+
+    .result-head {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .result-main {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(32px, 6vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1;
+      margin-bottom: 10px;
+      transition: color 0.2s ease;
+    }
+
+    .result-sub {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+      white-space: pre-line;
+      overflow-wrap: anywhere;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .result.error .result-main,
+    .result.error .result-sub {
+      color: var(--error);
+    }
+    .result.error { background: var(--error-bg); }
+
+    /* ─── NOTE ─── */
+    .note {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+      padding: 12px 16px;
+      background: var(--tag-bg);
+      border-radius: 10px;
+      border: 1px solid var(--divider);
+    }
+    .note strong { color: var(--tag-text); }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      height: 1px;
+      background: var(--divider);
+      margin: 24px 0;
+    }
+
+    /* ─── FOOTER / BRAND ZONE ─── */
+    .brand-zone {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 28px 0 8px;
+    }
+
+    .logo-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      opacity: 0.80;
+      transition: opacity 0.3s ease;
+    }
+    .logo-area:hover { opacity: 1; }
+
+    /* Warframe-inspired helm logo */
+    /* Logo: weiß mit Transparenz → Hell: dunkelblau eingefärbt, Dunkel: cyan mit Glow */
+    .wf-logo {
+      width: 224px;
+      height: 224px;
+      transition: filter 0.4s ease;
+      filter:
+        sepia(1) saturate(5) hue-rotate(155deg) brightness(0.85)
+        drop-shadow(0 0 8px rgba(6,182,212,0.6))
+        drop-shadow(0 0 20px rgba(6,182,212,0.3))
+        drop-shadow(0 0 40px rgba(96,165,250,0.2));
+      animation: logoPulseLight 7s ease-in-out infinite;
+    }
+    body.dark .wf-logo {
+      filter:
+        sepia(1) saturate(5) hue-rotate(155deg) brightness(0.7)
+        drop-shadow(0 0 4px rgba(6,182,212,0.4))
+        drop-shadow(0 0 10px rgba(6,182,212,0.2));
+      animation: logoPulse 7s ease-in-out infinite;
+    }
+    @keyframes logoPulseLight {
+      0%,100% {
+        filter: sepia(1) saturate(5) hue-rotate(155deg) brightness(0.85)
+          drop-shadow(0 0 8px rgba(6,182,212,0.6))
+          drop-shadow(0 0 20px rgba(6,182,212,0.3))
+          drop-shadow(0 0 40px rgba(96,165,250,0.2));
+      }
+      50% {
+        filter: sepia(1) saturate(5) hue-rotate(155deg) brightness(1.0)
+          drop-shadow(0 0 12px rgba(6,182,212,0.85))
+          drop-shadow(0 0 32px rgba(6,182,212,0.5))
+          drop-shadow(0 0 60px rgba(96,165,250,0.35));
+      }
+    }
+    @keyframes logoPulse {
+      0%,100% {
+        filter: sepia(1) saturate(5) hue-rotate(155deg) brightness(0.7)
+          drop-shadow(0 0 4px rgba(6,182,212,0.4))
+          drop-shadow(0 0 10px rgba(6,182,212,0.2));
+      }
+      50% {
+        filter: sepia(1) saturate(5) hue-rotate(155deg) brightness(1.5)
+          drop-shadow(0 0 18px rgba(6,182,212,1))
+          drop-shadow(0 0 45px rgba(6,182,212,0.8))
+          drop-shadow(0 0 90px rgba(96,165,250,0.6));
+      }
+    }
+
+    .wf-wordmark {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--warframe-text);
+    }
+
+    .unofficial-tag {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .card { animation: slideUp 0.4s ease both; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 680px) {
+      body { padding: 16px 12px 48px; }
+      .card { padding: 20px; border-radius: 22px; }
+      .topbar { flex-direction: column; align-items: stretch; }
+      .header-controls { justify-content: flex-start; }
+      .ctrl { flex: 1; border-radius: 14px; text-align: center; }
+      .grid { grid-template-columns: 1fr; }
+      .btn-primary, .btn-secondary { flex: 1; text-align: center; }
+    }
+
+    /* ─── MODE TOGGLE ─── */
+    .mode-toggle {
+      display: flex;
+      background: var(--surface-strong);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 4px;
+      gap: 4px;
+      margin-bottom: 20px;
+    }
+    .mode-btn {
+      flex: 1;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: 'Rajdhani', sans-serif;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      background: transparent;
+      color: var(--muted);
+      transition: all 0.2s ease;
+    }
+    .mode-btn.active {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 4px 12px var(--accent-glow);
+    }
+
+    /* ─── CHECKLIST SECTION ─── */
+    .checklist-card {
+      background: var(--surface);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+      margin-top: 16px;
+      animation: slideUp 0.4s ease both;
+    }
+
+    .checklist-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      gap: 12px;
+    }
+
+    .checklist-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(20px, 4vw, 28px);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      background: linear-gradient(135deg, var(--text) 40%, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .checklist-progress {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    .progress-bar-wrap {
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      margin-bottom: 28px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--cyan));
+      transition: width 0.4s ease;
+    }
+
+    /* faction cards */
+    .faction-section {
+      margin-bottom: 20px;
+      border: 2px solid var(--faction-color, var(--border));
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .faction-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      background: color-mix(in srgb, var(--faction-color, var(--accent)) 10%, transparent);
+      cursor: pointer;
+      user-select: none;
+      gap: 10px;
+    }
+    .faction-header:hover {
+      background: color-mix(in srgb, var(--faction-color, var(--accent)) 16%, transparent);
+    }
+    .faction-name {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--faction-color, var(--accent));
+    }
+    .faction-count {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+    .faction-chevron {
+      color: var(--faction-color, var(--accent));
+      font-size: 12px;
+      transition: transform 0.2s ease;
+    }
+    .faction-section.collapsed .faction-chevron { transform: rotate(-90deg); }
+    .faction-body {
+      padding: 16px 20px;
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .faction-section.collapsed .faction-body { display: none; }
+
+    .weapon-type-col {}
+    .weapon-type-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--divider);
+    }
+    .weapon-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .weapon-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+    .weapon-item:hover { background: var(--tag-bg); }
+    .weapon-item.checked { opacity: 0.55; }
+    .weapon-item.checked .weapon-name { text-decoration: line-through; }
+
+    .weapon-checkbox {
+      width: 16px;
+      height: 16px;
+      border: 2px solid var(--faction-color, var(--border));
+      border-radius: 5px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      transition: all 0.15s ease;
+    }
+    .weapon-item.checked .weapon-checkbox {
+      background: var(--faction-color, var(--accent));
+      border-color: var(--faction-color, var(--accent));
+    }
+    .weapon-checkbox-tick {
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      display: none;
+    }
+    .weapon-item.checked .weapon-checkbox-tick { display: block; }
+
+    .weapon-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .checklist-reset-btn {
+      font-size: 12px;
+      color: var(--muted);
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .checklist-reset-btn:hover { color: var(--error); border-color: var(--error); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+
+      <!-- TOPBAR -->
+      <div class="topbar">
+        <div class="header-left">
+          <div id="title" class="page-title">Valence Fusion Rechner</div>
+          <div id="subtitle" class="subtitle">Offline nutzbar. Schnell. Ohne Datenbank. Ohne Kram.</div>
+        </div>
+        <div class="header-controls">
+          <select id="langSelect" class="ctrl" aria-label="Sprache" onchange="changeLang()">
+            <option value="de">Deutsch</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+          </select>
+          <button id="themeBtn" class="ctrl" type="button" onclick="toggleTheme()">☀️ Helles Design</button>
+        </div>
+      </div>
+
+      <!-- MODE TOGGLE -->
+      <div class="mode-toggle">
+        <button class="mode-btn active" id="modeFusion" type="button" onclick="setMode('fusion')">Fusion berechnen</button>
+        <button class="mode-btn" id="modeReverse" type="button" onclick="setMode('reverse')">Zielwert rückrechnen</button>
+      </div>
+
+      <!-- FORMULA -->
+      <div id="formulaBox" class="formula">
+        <div class="formula-icon">ƒ</div>
+        <span id="formulaText">Formel: <strong>min(1,1 × max(Bonus 1, Bonus 2), 60)</strong></span>
+      </div>
+
+      <!-- FUSION MODE INPUTS -->
+      <div id="fusionInputs">
+        <div class="grid">
+          <div class="field">
+            <label id="lbl1" for="b1">Status in % von Waffe 1</label>
+            <input id="b1" type="text" inputmode="decimal" placeholder="z. B. 37,1" autocomplete="off" />
+          </div>
+          <div class="field">
+            <label id="lbl2" for="b2">Status in % von Waffe 2</label>
+            <input id="b2" type="text" inputmode="decimal" placeholder="z. B. 48,6" autocomplete="off" />
+          </div>
+        </div>
+        <div class="actions">
+          <button id="calcBtn" class="btn-primary"  type="button" onclick="calculate()">Berechnen</button>
+          <button id="clrBtn"  class="btn-secondary" type="button" onclick="clearAll()">Leeren</button>
+        </div>
+      </div>
+
+      <!-- REVERSE MODE INPUTS -->
+      <div id="reverseInputs" style="display:none">
+        <div class="grid" style="grid-template-columns:1fr">
+          <div class="field">
+            <label for="revTarget">Zielwert in %</label>
+            <input id="revTarget" type="text" inputmode="decimal" placeholder="z. B. 54,6" autocomplete="off" />
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn-primary" type="button" onclick="calcReverse()">Berechnen</button>
+          <button class="btn-secondary" type="button" onclick="clearReverse()">Leeren</button>
+        </div>
+      </div>
+
+      <!-- RESULT -->
+      <div id="output" class="result">
+        <div id="resultHead" class="result-head">Ergebnis</div>
+        <div id="resultMain" class="result-main">Noch nichts berechnet</div>
+        <div id="resultSub"  class="result-sub">Trag zwei Werte ein und drück auf Berechnen.</div>
+      </div>
+
+      <!-- NOTE -->
+      <div id="noteBox" class="note">
+        <strong>Hinweis:</strong> Punkt und Komma werden beide akzeptiert. Es wird immer nur der höhere der beiden Werte verwendet.
+      </div>
+
+    </div><!-- end .card -->
+
+    <!-- BRAND ZONE — außerhalb der Karte, unten mittig -->
+    <div class="brand-zone">
+      <div class="logo-area" id="logoArea">
+          <img src="data:image/png;base64,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" alt="Warframe Lotus Logo" class="wf-logo" />
+          <div class="wf-wordmark" id="wordmark">WARFRAME</div>
+        <div class="unofficial-tag" id="unoffTag" style="display:none">Inoffizielle Seite — nicht von Digital Extremes</div>
+      </div>
+    </div><!-- end .brand-zone -->
+
+    <!-- CHECKLIST CARD -->
+    <div class="checklist-card" id="checklistCard">
+      <div class="checklist-header">
+        <div class="checklist-title">60% Waffen Tracker</div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span class="checklist-progress" id="checkProgress">0 / 48</span>
+          <button class="checklist-reset-btn" type="button" onclick="resetChecklist()">Zurücksetzen</button>
+        </div>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+      </div>
+      <div id="checklistBody"></div>
+    </div>
+
+  </div><!-- end .wrap -->
+
+  <script>
+    "use strict";
+
+    const MAX = 60.0;
+
+    // ─── TRANSLATIONS ───────────────────────────────────────────────
+    const T = {
+      de: {
+        title:      "Valence Fusion Rechner",
+        subtitle:   "Offline nutzbar. Schnell. Ohne Datenbank. Ohne Kram.",
+        fLabel:     "Formel",
+        fValue:     "min(1,1 × max(Bonus 1, Bonus 2), 60) · ≥58% → 60%",
+        lbl1:       "Status in % von Waffe 1",
+        lbl2:       "Status in % von Waffe 2",
+        ph1:        "z. B. 37,1",
+        ph2:        "z. B. 48,6",
+        calc:       "Berechnen",
+        clr:        "Leeren",
+        resHead:    "Ergebnis",
+        noteKey:    "Hinweis:",
+        noteVal:    "Punkt und Komma werden beide akzeptiert. Es wird immer nur der höhere der beiden Werte verwendet.",
+        lightTheme: "☀️ Helles Design",
+        darkTheme:  "🌙 Dunkles Design",
+        emptyMain:  "Noch nichts berechnet",
+        emptySub:   "Trag zwei Werte ein und drück auf Berechnen.",
+        errMain:    "Fehler",
+        errBoth:    "Bitte beide Werte eingeben.",
+        errNum:     "Ungültige Eingabe. Bitte nur Zahlen verwenden.",
+        errNeg:     "Werte dürfen nicht negativ sein.",
+        errMax:     "Werte dürfen nicht höher als 60 sein.",
+        unofficial: "Inoffizielle Seite — nicht von Digital Extremes",
+        comma:      true
+      },
+      en: {
+        title:      "Valence Fusion Calculator",
+        subtitle:   "Works offline. Fast. No database. No clutter.",
+        fLabel:     "Formula",
+        fValue:     "min(1.1 × max(Bonus 1, Bonus 2), 60) · ≥58% → 60%",
+        lbl1:       "Status % of Weapon 1",
+        lbl2:       "Status % of Weapon 2",
+        ph1:        "e.g. 37.1",
+        ph2:        "e.g. 48.6",
+        calc:       "Calculate",
+        clr:        "Clear",
+        resHead:    "Result",
+        noteKey:    "Note:",
+        noteVal:    "Both dots and commas work as decimal separators. Only the higher value is used.",
+        lightTheme: "☀️ Light theme",
+        darkTheme:  "🌙 Dark theme",
+        emptyMain:  "Nothing calculated yet",
+        emptySub:   "Enter two values and press Calculate.",
+        errMain:    "Error",
+        errBoth:    "Please enter both values.",
+        errNum:     "Invalid input. Please use numbers only.",
+        errNeg:     "Values cannot be negative.",
+        errMax:     "Values cannot be higher than 60.",
+        unofficial: "Unofficial tool — not affiliated with Digital Extremes",
+        comma:      false
+      },
+      es: {
+        title:      "Calculadora Valence Fusion",
+        subtitle:   "Funciona sin conexión. Rápida. Sin base de datos. Sin relleno.",
+        fLabel:     "Fórmula",
+        fValue:     "min(1,1 × max(Bonus 1, Bonus 2), 60) · ≥58% → 60%",
+        lbl1:       "Estado en % del Arma 1",
+        lbl2:       "Estado en % del Arma 2",
+        ph1:        "p. ej. 37,1",
+        ph2:        "p. ej. 48,6",
+        calc:       "Calcular",
+        clr:        "Limpiar",
+        resHead:    "Resultado",
+        noteKey:    "Nota:",
+        noteVal:    "El punto y la coma funcionan ambos. Solo se usa el valor más alto.",
+        lightTheme: "☀️ Tema claro",
+        darkTheme:  "🌙 Tema oscuro",
+        emptyMain:  "Aún sin calcular",
+        emptySub:   "Introduce dos valores y pulsa Calcular.",
+        errMain:    "Error",
+        errBoth:    "Por favor, introduce ambos valores.",
+        errNum:     "Entrada no válida. Usa solo números.",
+        errNeg:     "Los valores no pueden ser negativos.",
+        errMax:     "Los valores no pueden ser mayores que 60.",
+        unofficial: "Herramienta no oficial — sin relación con Digital Extremes",
+        comma:      true
+      },
+      fr: {
+        title:      "Calculateur Valence Fusion",
+        subtitle:   "Fonctionne hors ligne. Rapide. Sans base de données. Sans superflu.",
+        fLabel:     "Formule",
+        fValue:     "min(1,1 × max(Bonus 1, Bonus 2), 60) · ≥58% → 60%",
+        lbl1:       "Statut en % de l'Arme 1",
+        lbl2:       "Statut en % de l'Arme 2",
+        ph1:        "ex. 37,1",
+        ph2:        "ex. 48,6",
+        calc:       "Calculer",
+        clr:        "Vider",
+        resHead:    "Résultat",
+        noteKey:    "Note :",
+        noteVal:    "Le point et la virgule fonctionnent tous les deux. Seule la valeur la plus élevée est utilisée.",
+        lightTheme: "☀️ Thème clair",
+        darkTheme:  "🌙 Thème sombre",
+        emptyMain:  "Aucun calcul pour l'instant",
+        emptySub:   "Saisis deux valeurs et clique sur Calculer.",
+        errMain:    "Erreur",
+        errBoth:    "Veuillez saisir les deux valeurs.",
+        errNum:     "Entrée invalide. Utilise uniquement des nombres.",
+        errNeg:     "Les valeurs ne peuvent pas être négatives.",
+        errMax:     "Les valeurs ne peuvent pas dépasser 60.",
+        unofficial: "Outil non officiel — sans lien avec Digital Extremes",
+        comma:      true
+      }
+    };
+
+    // ─── STATE ──────────────────────────────────────────────────────
+    function getLang()  { return (localStorage.getItem("vf-lang")  || "de"); }
+    function getTheme() { return (localStorage.getItem("vf-theme") || "dark"); }
+    function tr()       { return T[getLang()] || T["de"]; }
+
+    // ─── NUMBER PARSING (bulletproof) ───────────────────────────────
+    function parseVal(raw) {
+      if (typeof raw !== "string") throw new Error(tr().errNum);
+
+      // Strip whitespace and percent sign
+      let s = raw.trim().replace(/\s/g, "").replace(/%/g, "");
+
+      if (s === "") throw new Error(tr().errBoth);
+
+      // Allow both comma and dot as decimal sep; handle cases like "37,1" or "37.1"
+      // Reject if multiple separators of same kind (e.g. "1,000,000")
+      const commaCount = (s.match(/,/g) || []).length;
+      const dotCount   = (s.match(/\./g) || []).length;
+
+      if (commaCount > 1 || dotCount > 1) throw new Error(tr().errNum);
+
+      // Normalise: replace comma with dot
+      s = s.replace(",", ".");
+
+      // Only digits, dot, optional leading minus
+      if (!/^-?\d*\.?\d+$/.test(s)) throw new Error(tr().errNum);
+
+      const n = Number(s);
+
+      if (!Number.isFinite(n)) throw new Error(tr().errNum);
+      if (n < 0)               throw new Error(tr().errNeg);
+      if (n > MAX)             throw new Error(tr().errMax);
+
+      return n;
+    }
+
+    // ─── FORMULA ────────────────────────────────────────────────────
+    function calcFusion(a, b) {
+      const raw = Math.max(a, b) * 1.1;
+      // Spiel-Regel: ab 58% wird auf 60% aufgerundet (Wiki-bestätigt)
+      if (raw >= 58) return 60;
+      return Math.min(raw, MAX);
+    }
+
+    function fmt(n, dec = 1) {
+      const s = n.toFixed(dec);
+      return tr().comma ? s.replace(".", ",") : s;
+    }
+
+    function buildSteps(a, b, res) {
+      const hi   = Math.max(a, b);
+      const mult = hi * 1.1;
+      const sep  = tr().comma ? "1,1" : "1.1";
+      const roundNote = mult >= 58 && mult < 60
+        ? "\n≥ 58% → " + (tr().comma ? "automatisch auf 60% aufgerundet" : "auto-rounded to 60%")
+        : "";
+      return (
+        "max(" + fmt(a) + ", " + fmt(b) + ") × " + sep + "\n" +
+        "= " + fmt(hi) + " × " + sep + "\n" +
+        "= " + fmt(mult, 2) + "%" + roundNote + "\n" +
+        "→ " + fmt(res) + " %"
+      );
+    }
+
+    // ─── RENDER ─────────────────────────────────────────────────────
+    function setResult(main, sub, mode /* 'empty'|'value'|'error' */) {
+      const out = document.getElementById("output");
+      out.className = "result" + (mode === "error" ? " error" : "") + (mode === "value" ? " has-value" : "");
+      document.getElementById("resultMain").textContent = main;
+      document.getElementById("resultSub").textContent  = sub;
+    }
+
+    function markInput(id, isError) {
+      const el = document.getElementById(id);
+      if (isError) el.classList.add("invalid");
+      else         el.classList.remove("invalid");
+    }
+
+    // ─── ACTIONS ────────────────────────────────────────────────────
+    function calculate() {
+      const rawA = document.getElementById("b1").value;
+      const rawB = document.getElementById("b2").value;
+
+      let a, b;
+      let errA = false, errB = false;
+
+      try { a = parseVal(rawA); } catch (e) {
+        if (rawA.trim() === "") errA = true;
+        else errA = true;
+      }
+      try { b = parseVal(rawB); } catch (e) {
+        if (rawB.trim() === "") errB = true;
+        else errB = true;
+      }
+
+      // Both empty
+      if (rawA.trim() === "" && rawB.trim() === "") {
+        markInput("b1", true); markInput("b2", true);
+        setResult(tr().errMain, tr().errBoth, "error");
+        return;
+      }
+
+      // Re-parse carefully for proper error messages
+      try {
+        a = parseVal(rawA);
+        markInput("b1", false);
+      } catch(e) {
+        markInput("b1", true);
+        setResult(tr().errMain, e.message, "error");
+        return;
+      }
+      try {
+        b = parseVal(rawB);
+        markInput("b2", false);
+      } catch(e) {
+        markInput("b2", true);
+        setResult(tr().errMain, e.message, "error");
+        return;
+      }
+
+      const res = calcFusion(a, b);
+      setResult(fmt(res) + " %", buildSteps(a, b, res), "value");
+    }
+
+    function clearAll() {
+      document.getElementById("b1").value = "";
+      document.getElementById("b2").value = "";
+      markInput("b1", false);
+      markInput("b2", false);
+      setResult(tr().emptyMain, tr().emptySub, "empty");
+      document.getElementById("b1").focus();
+    }
+
+    // ─── THEME ──────────────────────────────────────────────────────
+    function applyTheme(theme) {
+      document.body.classList.toggle("dark", theme === "dark");
+      document.getElementById("themeBtn").textContent =
+        theme === "dark" ? tr().lightTheme : tr().darkTheme;
+    }
+
+    function toggleTheme() {
+      const next = document.body.classList.contains("dark") ? "light" : "dark";
+      localStorage.setItem("vf-theme", next);
+      applyTheme(next);
+    }
+
+    // ─── LANGUAGE ───────────────────────────────────────────────────
+    function applyLang() {
+      const lang = getLang();
+      const x    = tr();
+
+      document.documentElement.lang = lang;
+      document.title = x.title;
+
+      document.getElementById("title").textContent    = x.title;
+      document.getElementById("subtitle").textContent = x.subtitle;
+      document.getElementById("formulaText").innerHTML =
+        x.fLabel + ": <strong>" + x.fValue + "</strong>";
+      document.getElementById("lbl1").textContent     = x.lbl1;
+      document.getElementById("lbl2").textContent     = x.lbl2;
+      document.getElementById("b1").placeholder       = x.ph1;
+      document.getElementById("b2").placeholder       = x.ph2;
+      document.getElementById("calcBtn").textContent  = x.calc;
+      document.getElementById("clrBtn").textContent   = x.clr;
+      document.getElementById("resultHead").textContent = x.resHead;
+      document.getElementById("noteBox").innerHTML    =
+        "<strong>" + x.noteKey + "</strong> " + x.noteVal;
+      document.getElementById("unoffTag").textContent = x.unofficial;
+      document.getElementById("langSelect").value     = lang;
+
+      // Update theme button label in new language
+      applyTheme(getTheme());
+
+      // Re-translate result area if it shows a known empty/error state
+      const curMain = document.getElementById("resultMain").textContent.trim();
+      const isKnownEmpty = Object.values(T).some(t => t.emptyMain === curMain);
+      const isKnownError = Object.values(T).some(t => t.errMain   === curMain);
+
+      if (isKnownEmpty) setResult(x.emptyMain, x.emptySub, "empty");
+      else if (isKnownError) {
+        const curSub = document.getElementById("resultSub").textContent.trim();
+        setResult(x.errMain, curSub, "error");
+      }
+    }
+
+    function changeLang() {
+      const lang = document.getElementById("langSelect").value;
+      if (!T[lang]) return; // safety check
+      localStorage.setItem("vf-lang", lang);
+      applyLang();
+    }
+
+    // ─── KEYBOARD ───────────────────────────────────────────────────
+    
+    
+
+    // Clear red border on typing
+
+    // ─── MODE TOGGLE ────────────────────────────────────────────────
+    let currentMode = "fusion";
+    function setMode(mode) {
+      currentMode = mode;
+      document.getElementById("fusionInputs").style.display  = mode === "fusion"  ? "" : "none";
+      document.getElementById("reverseInputs").style.display = mode === "reverse" ? "" : "none";
+      document.getElementById("modeFusion").classList.toggle("active",  mode === "fusion");
+      document.getElementById("modeReverse").classList.toggle("active", mode === "reverse");
+      setResult(tr().emptyMain, tr().emptySub, "empty");
+      if (mode === "reverse") {
+        const lang = getLang();
+        const comma = T[lang]?.comma ?? true;
+        document.getElementById("formulaText").innerHTML =
+          "Formel: <strong>Zielwert ÷ 1,1 = mindestens benötigter Bonus</strong>";
+      } else {
+        applyLang();
+      }
+    }
+
+    // ─── REVERSE CALC ───────────────────────────────────────────────
+    function calcReverse() {
+      const raw = document.getElementById("revTarget").value;
+      let target;
+      try { target = parseVal(raw); } catch(e) {
+        setResult(tr().errMain, e.message, "error");
+        return;
+      }
+      if (target <= 0) { setResult(tr().errMain, tr().errNeg, "error"); return; }
+      if (target > 60) { setResult(tr().errMain, tr().errMax, "error"); return; }
+
+      const comma = tr().comma;
+      const sep   = comma ? "," : ".";
+
+      // Special case: 60% target
+      if (target === 60) {
+        const minVal = (58 / 1.1);
+        const main = "60,0 %".replace(",", sep);
+        const sub  = "Zielwert 60%:\n\u226558% \u2192 60% Regel greift\n\u2192 Mindest-Bonus: " + minVal.toFixed(2).replace(".", sep) + "%";
+        setResult(main, sub, "value");
+        return;
+      }
+
+      const needed = target / 1.1;
+      const mainTxt = target.toFixed(1).replace(".", sep) + " %";
+      const sub = "Mindest-Bonus einer Waffe:\n" + needed.toFixed(2).replace(".", sep) + "%\n\u2192 " + target.toFixed(1).replace(".", sep) + " \xd7 1,1 Fusion";
+      setResult(mainTxt, sub, "value");
+    }
+
+    function clearReverse() {
+      document.getElementById("revTarget").value = "";
+      setResult(tr().emptyMain, tr().emptySub, "empty");
+    }
+
+    document.getElementById("revTarget").addEventListener("keydown", e => { if (e.key === "Enter") calcReverse(); });
+
+    // ─── CHECKLIST DATA ─────────────────────────────────────────────
+    const WEAPONS = {
+      kuva: {
+        color: "#e85d26",
+        label: "Kuva",
+        primary:   ["Bramma","Chakkhurr","Drakgoon","Hek","Hind","Karak","Kohm","Ogris","Quartakk","Sobek","Tonkor","Zarr"],
+        secondary: ["Brakk","Kraken","Nukor","Seer","Twin Stubbas"],
+        melee:     ["Ghoulsaw","Shildeg"]
+      },
+      tenet: {
+        color: "#3b82f6",
+        label: "Tenet",
+        primary:   ["Arca Plasmor","Envoy","Flux Rifle","Glaxion","Quanta","Tetra"],
+        secondary: ["Cycron","Detron","Diplos","Plinx","Spirex"],
+        melee:     ["Agendus","Exec","Ferrox","Grigori","Livia"]
+      },
+      coda: {
+        color: "#a855f7",
+        label: "Coda",
+        primary:   ["Bassocyst","Bubonico","Hema","Sporothrix","Synapse"],
+        secondary: ["Catabolyst","Dual Torxica","Pox","Tysis"],
+        melee:     ["Caustacyst","Hirudo","Mire","Motovore","Pathocyst"]
+      }
+    };
+
+    // count total
+    const TOTAL = Object.values(WEAPONS).reduce((a,f) => a + f.primary.length + f.secondary.length + f.melee.length, 0);
+
+    function getChecked() {
+      try { return JSON.parse(localStorage.getItem("vf-checked") || "{}"); } catch { return {}; }
+    }
+    function saveChecked(obj) { localStorage.setItem("vf-checked", JSON.stringify(obj)); }
+
+    function weaponKey(faction, type, name) { return faction + ":" + type + ":" + name; }
+
+    function toggleWeapon(faction, type, name) {
+      const checked = getChecked();
+      const key = weaponKey(faction, type, name);
+      if (checked[key]) delete checked[key];
+      else checked[key] = 1;
+      saveChecked(checked);
+      const item = document.querySelector('[data-key="' + key + '"]');
+      if (item) item.classList.toggle("checked", !!checked[key]);
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const checked = getChecked();
+      const count = Object.keys(checked).length;
+      document.getElementById("checkProgress").textContent = count + " / " + TOTAL;
+      document.getElementById("progressFill").style.width = (count / TOTAL * 100).toFixed(1) + "%";
+      // also update per-faction counts
+      Object.keys(WEAPONS).forEach(fid => {
+        const f = WEAPONS[fid];
+        const total = f.primary.length + f.secondary.length + f.melee.length;
+        const done  = [...f.primary.map(n=>weaponKey(fid,"primary",n)),
+                        ...f.secondary.map(n=>weaponKey(fid,"secondary",n)),
+                        ...f.melee.map(n=>weaponKey(fid,"melee",n))].filter(k=>checked[k]).length;
+        const el = document.getElementById("faction-count-" + fid);
+        if (el) el.textContent = done + " / " + total;
+      });
+    }
+
+    function buildChecklist() {
+      const checked = getChecked();
+      const body = document.getElementById("checklistBody");
+      body.innerHTML = "";
+
+      Object.entries(WEAPONS).forEach(([fid, f]) => {
+        const section = document.createElement("div");
+        section.className = "faction-section";
+        section.style.setProperty("--faction-color", f.color);
+        section.id = "faction-" + fid;
+
+        const total = f.primary.length + f.secondary.length + f.melee.length;
+        const done  = [...f.primary.map(n=>weaponKey(fid,"primary",n)),
+                        ...f.secondary.map(n=>weaponKey(fid,"secondary",n)),
+                        ...f.melee.map(n=>weaponKey(fid,"melee",n))].filter(k=>checked[k]).length;
+
+        section.innerHTML = `
+          <div class="faction-header" onclick="toggleFaction('${fid}')">
+            <span class="faction-name">${f.label} Waffen</span>
+            <span class="faction-count" id="faction-count-${fid}">${done} / ${total}</span>
+            <span class="faction-chevron">▼</span>
+          </div>
+          <div class="faction-body">
+            <div class="weapon-type-col" id="col-${fid}-primary"></div>
+            <div class="weapon-type-col" id="col-${fid}-secondary"></div>
+            <div class="weapon-type-col" id="col-${fid}-melee"></div>
+          </div>
+        `;
+        body.appendChild(section);
+
+        buildWeaponCol(fid, "primary",   f.primary,   checked);
+        buildWeaponCol(fid, "secondary", f.secondary, checked);
+        buildWeaponCol(fid, "melee",     f.melee,     checked);
+      });
+    }
+
+    function buildWeaponCol(fid, type, names, checked) {
+      const col = document.getElementById("col-" + fid + "-" + type);
+      const labels = { primary: "Primär", secondary: "Sekundär", melee: "Melee" };
+      col.innerHTML = `<div class="weapon-type-label">${labels[type]}</div>`;
+      const list = document.createElement("div");
+      list.className = "weapon-list";
+      names.forEach(name => {
+        const key  = weaponKey(fid, type, name);
+        const isOn = !!checked[key];
+        const item = document.createElement("div");
+        item.className = "weapon-item" + (isOn ? " checked" : "");
+        item.dataset.key = key;
+        item.innerHTML = `
+          <div class="weapon-checkbox"><span class="weapon-checkbox-tick">✓</span></div>
+          <span class="weapon-name">${name}</span>
+        `;
+        item.addEventListener("click", () => toggleWeapon(fid, type, name));
+        list.appendChild(item);
+      });
+      col.appendChild(list);
+    }
+
+    function toggleFaction(fid) {
+      document.getElementById("faction-" + fid).classList.toggle("collapsed");
+    }
+
+    function resetChecklist() {
+      if (!confirm("Alle Häkchen zurücksetzen?")) return;
+      localStorage.removeItem("vf-checked");
+      buildChecklist();
+      updateProgress();
+    }
+
+    document.getElementById("b1").addEventListener("keydown", e => { if (e.key === "Enter") calculate(); });
+    document.getElementById("b2").addEventListener("keydown", e => { if (e.key === "Enter") calculate(); });
+    document.getElementById("b1").addEventListener("input", () => markInput("b1", false));
+    document.getElementById("b2").addEventListener("input", () => markInput("b2", false));
+
+    // ─── INIT ───────────────────────────────────────────────────────
+    (function init() {
+      const lang  = getLang();
+      const theme = getTheme();
+      if (!T[lang]) localStorage.setItem("vf-lang", "de");
+      localStorage.setItem("vf-theme", theme);
+      applyLang();
+      setResult(tr().emptyMain, tr().emptySub, "empty");
+      buildChecklist();
+      updateProgress();
+    })();
+  </script>
+</body>
+</html>
