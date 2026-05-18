@@ -687,7 +687,7 @@
       <!-- MODE TOGGLE -->
       <div class="mode-toggle">
         <button class="mode-btn active" id="modeFusion" type="button" onclick="setMode('fusion')">Fusion berechnen</button>
-        <button class="mode-btn" id="modeReverse" type="button" onclick="setMode('reverse')">Zielwert rückrechnen</button>
+        <button class="mode-btn" id="modeReverse" type="button" onclick="setMode('reverse')">Was brauche ich als 2. Waffe?</button>
       </div>
 
       <!-- FORMULA -->
@@ -718,8 +718,8 @@
       <div id="reverseInputs" style="display:none">
         <div class="grid" style="grid-template-columns:1fr">
           <div class="field">
-            <label for="revTarget">Zielwert in %</label>
-            <input id="revTarget" type="text" inputmode="decimal" placeholder="z. B. 54,6" autocomplete="off" />
+            <label for="revTarget">Bonus deiner Waffe in %</label>
+            <input id="revTarget" type="text" inputmode="decimal" placeholder="z. B. 48,6" autocomplete="off" />
           </div>
         </div>
         <div class="actions">
@@ -798,6 +798,15 @@
         errNum:     "Ungültige Eingabe. Bitte nur Zahlen verwenden.",
         errNeg:     "Werte dürfen nicht negativ sein.",
         errMax:     "Werte dürfen nicht höher als 60 sein.",
+        modeFusion:  "Fusion berechnen",
+        modeReverse: "Was brauche ich als 2. Waffe?",
+        revLbl:      "Bonus deiner Waffe in %",
+        revPh:       "z. B. 48,6",
+        revFormula:  "60 ÷ 1,1 = 54,55% — mindestens benötigter Bonus der 2. Waffe",
+        revEmptySub: "Trag den Bonus deiner Waffe ein und drück auf Berechnen.",
+        revStrongSub:"2. Waffe muss mindestens 54,55% haben\ndamit × 1,1 = 60% erreicht wird.",
+        revWeakSub1: "Deine Waffe (",
+        revWeakSub2: "%) ist stark genug.\nJede 2. Waffe reicht — Ergebnis: ",
         unofficial: "Inoffizielle Seite — nicht von Digital Extremes",
         comma:      true
       },
@@ -824,6 +833,15 @@
         errNum:     "Invalid input. Please use numbers only.",
         errNeg:     "Values cannot be negative.",
         errMax:     "Values cannot be higher than 60.",
+        modeFusion:  "Fusion calculator",
+        modeReverse: "What do I need as 2nd weapon?",
+        revLbl:      "Your weapon bonus in %",
+        revPh:       "e.g. 48.6",
+        revFormula:  "60 ÷ 1.1 = 54.55% — minimum bonus needed on 2nd weapon",
+        revEmptySub: "Enter your weapon bonus and press Calculate.",
+        revStrongSub:"2nd weapon needs at least 54.55%\nso that × 1.1 = 60% is reached.",
+        revWeakSub1: "Your weapon (",
+        revWeakSub2: "%) is strong enough.\nAny 2nd weapon works — result: ",
         unofficial: "Unofficial tool — not affiliated with Digital Extremes",
         comma:      false
       },
@@ -850,6 +868,15 @@
         errNum:     "Entrada no válida. Usa solo números.",
         errNeg:     "Los valores no pueden ser negativos.",
         errMax:     "Los valores no pueden ser mayores que 60.",
+        modeFusion:  "Calculadora de fusión",
+        modeReverse: "¿Qué necesito como 2ª arma?",
+        revLbl:      "Bonus de tu arma en %",
+        revPh:       "p. ej. 48,6",
+        revFormula:  "60 ÷ 1,1 = 54,55% — bonus mínimo necesario en la 2ª arma",
+        revEmptySub: "Introduce el bonus de tu arma y pulsa Calcular.",
+        revStrongSub:"La 2ª arma necesita al menos 54,55%\npara que × 1,1 = 60%.",
+        revWeakSub1: "Tu arma (",
+        revWeakSub2: "%) es suficientemente fuerte.\nCualquier 2ª arma sirve — resultado: ",
         unofficial: "Herramienta no oficial — sin relación con Digital Extremes",
         comma:      true
       },
@@ -876,6 +903,15 @@
         errNum:     "Entrée invalide. Utilise uniquement des nombres.",
         errNeg:     "Les valeurs ne peuvent pas être négatives.",
         errMax:     "Les valeurs ne peuvent pas dépasser 60.",
+        modeFusion:  "Calculateur de fusion",
+        modeReverse: "Que faut-il comme 2e arme ?",
+        revLbl:      "Bonus de ton arme en %",
+        revPh:       "ex. 48,6",
+        revFormula:  "60 ÷ 1,1 = 54,55% — bonus minimum requis pour la 2e arme",
+        revEmptySub: "Saisis le bonus de ton arme et clique sur Calculer.",
+        revStrongSub:"La 2e arme doit avoir au moins 54,55%\npour que × 1,1 = 60%.",
+        revWeakSub1: "Ton arme (",
+        revWeakSub2: "%) est assez forte.\nN'importe quelle 2e arme convient — résultat : ",
         unofficial: "Outil non officiel — sans lien avec Digital Extremes",
         comma:      true
       }
@@ -1051,6 +1087,18 @@
       document.getElementById("unoffTag").textContent = x.unofficial;
       document.getElementById("langSelect").value     = lang;
 
+      // Reverse mode elements
+      document.getElementById("modeFusion").textContent  = x.modeFusion;
+      document.getElementById("modeReverse").textContent = x.modeReverse;
+      const revLbl = document.querySelector("label[for='revTarget']");
+      if (revLbl) revLbl.textContent = x.revLbl;
+      const revInput = document.getElementById("revTarget");
+      if (revInput) revInput.placeholder = x.revPh;
+      if (currentMode === "reverse") {
+        document.getElementById("formulaText").innerHTML =
+          x.fLabel + ": <strong>" + x.revFormula + "</strong>";
+      }
+
       // Update theme button label in new language
       applyTheme(getTheme());
 
@@ -1089,10 +1137,10 @@
       document.getElementById("modeReverse").classList.toggle("active", mode === "reverse");
       setResult(tr().emptyMain, tr().emptySub, "empty");
       if (mode === "reverse") {
-        const lang = getLang();
-        const comma = T[lang]?.comma ?? true;
+        const x = tr();
         document.getElementById("formulaText").innerHTML =
-          "Formel: <strong>Zielwert ÷ 1,1 = mindestens benötigter Bonus</strong>";
+          x.fLabel + ": <strong>" + x.revFormula + "</strong>";
+        setResult(x.emptyMain, x.revEmptySub, "empty");
       } else {
         applyLang();
       }
@@ -1101,30 +1149,24 @@
     // ─── REVERSE CALC ───────────────────────────────────────────────
     function calcReverse() {
       const raw = document.getElementById("revTarget").value;
-      let target;
-      try { target = parseVal(raw); } catch(e) {
+      let val;
+      try { val = parseVal(raw); } catch(e) {
         setResult(tr().errMain, e.message, "error");
         return;
       }
-      if (target <= 0) { setResult(tr().errMain, tr().errNeg, "error"); return; }
-      if (target > 60) { setResult(tr().errMain, tr().errMax, "error"); return; }
+      const x   = tr();
+      const sep = x.comma ? "," : ".";
+      const threshold = 60 / 1.1; // ~54.5454...
 
-      const comma = tr().comma;
-      const sep   = comma ? "," : ".";
-
-      // Special case: 60% target
-      if (target === 60) {
-        const minVal = (58 / 1.1);
-        const main = "60,0 %".replace(",", sep);
-        const sub  = "Zielwert 60%:\n\u226558% \u2192 60% Regel greift\n\u2192 Mindest-Bonus: " + minVal.toFixed(2).replace(".", sep) + "%";
-        setResult(main, sub, "value");
-        return;
+      if (val >= threshold) {
+        const result  = Math.min(val * 1.1, 60);
+        const mainTxt = result.toFixed(1).replace(".", sep) + " %";
+        const sub     = x.revWeakSub1 + val.toFixed(1).replace(".", sep) + x.revWeakSub2 + result.toFixed(1).replace(".", sep) + "%";
+        setResult(mainTxt, sub, "value");
+      } else {
+        const mainTxt = threshold.toFixed(2).replace(".", sep) + " %";
+        setResult(mainTxt, x.revStrongSub, "value");
       }
-
-      const needed = target / 1.1;
-      const mainTxt = target.toFixed(1).replace(".", sep) + " %";
-      const sub = "Mindest-Bonus einer Waffe:\n" + needed.toFixed(2).replace(".", sep) + "%\n\u2192 " + target.toFixed(1).replace(".", sep) + " \xd7 1,1 Fusion";
-      setResult(mainTxt, sub, "value");
     }
 
     function clearReverse() {
