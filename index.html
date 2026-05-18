@@ -443,36 +443,7 @@
       .btn-primary, .btn-secondary { flex: 1; text-align: center; }
     }
 
-    /* ─── MODE TOGGLE ─── */
-    .mode-toggle {
-      display: flex;
-      background: var(--surface-strong);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 4px;
-      gap: 4px;
-      margin-bottom: 20px;
-    }
-    .mode-btn {
-      flex: 1;
-      border: none;
-      border-radius: 10px;
-      padding: 10px 16px;
-      font-size: 13px;
-      font-weight: 700;
-      font-family: 'Rajdhani', sans-serif;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      cursor: pointer;
-      background: transparent;
-      color: var(--muted);
-      transition: all 0.2s ease;
-    }
-    .mode-btn.active {
-      background: var(--accent);
-      color: #fff;
-      box-shadow: 0 4px 12px var(--accent-glow);
-    }
+
 
     /* ─── CHECKLIST SECTION ─── */
     .checklist-card {
@@ -684,11 +655,7 @@
         </div>
       </div>
 
-      <!-- MODE TOGGLE -->
-      <div class="mode-toggle">
-        <button class="mode-btn active" id="modeFusion" type="button" onclick="setMode('fusion')">Fusion berechnen</button>
-        <button class="mode-btn" id="modeReverse" type="button" onclick="setMode('reverse')">Was brauche ich als 2. Waffe?</button>
-      </div>
+
 
       <!-- FORMULA -->
       <div id="formulaBox" class="formula">
@@ -714,19 +681,7 @@
         </div>
       </div>
 
-      <!-- REVERSE MODE INPUTS -->
-      <div id="reverseInputs" style="display:none">
-        <div class="grid" style="grid-template-columns:1fr">
-          <div class="field">
-            <label for="revTarget">Bonus deiner Waffe in %</label>
-            <input id="revTarget" type="text" inputmode="decimal" placeholder="z. B. 48,6" autocomplete="off" />
-          </div>
-        </div>
-        <div class="actions">
-          <button class="btn-primary" type="button" onclick="calcReverse()">Berechnen</button>
-          <button class="btn-secondary" type="button" onclick="clearReverse()">Leeren</button>
-        </div>
-      </div>
+
 
       <!-- RESULT -->
       <div id="output" class="result">
@@ -788,7 +743,7 @@
         clr:        "Leeren",
         resHead:    "Ergebnis",
         noteKey:    "Hinweis:",
-        noteVal:    "Punkt und Komma werden beide akzeptiert. Es wird immer nur der höhere der beiden Werte verwendet.",
+        noteVal:    "Punkt und Komma werden beide akzeptiert. Es wird immer nur der höhere der beiden Werte verwendet. Minimum für 60%: 54,55%.",
         lightTheme: "☀️ Helles Design",
         darkTheme:  "🌙 Dunkles Design",
         emptyMain:  "Noch nichts berechnet",
@@ -823,7 +778,7 @@
         clr:        "Clear",
         resHead:    "Result",
         noteKey:    "Note:",
-        noteVal:    "Both dots and commas work as decimal separators. Only the higher value is used.",
+        noteVal:    "Both dots and commas work as decimal separators. Only the higher value is used. Minimum for 60%: 54.55%.",
         lightTheme: "☀️ Light theme",
         darkTheme:  "🌙 Dark theme",
         emptyMain:  "Nothing calculated yet",
@@ -858,7 +813,7 @@
         clr:        "Limpiar",
         resHead:    "Resultado",
         noteKey:    "Nota:",
-        noteVal:    "El punto y la coma funcionan ambos. Solo se usa el valor más alto.",
+        noteVal:    "El punto y la coma funcionan ambos. Solo se usa el valor más alto. Mínimo para 60%: 54,55%.",
         lightTheme: "☀️ Tema claro",
         darkTheme:  "🌙 Tema oscuro",
         emptyMain:  "Aún sin calcular",
@@ -893,7 +848,7 @@
         clr:        "Vider",
         resHead:    "Résultat",
         noteKey:    "Note :",
-        noteVal:    "Le point et la virgule fonctionnent tous les deux. Seule la valeur la plus élevée est utilisée.",
+        noteVal:    "Le point et la virgule fonctionnent tous les deux. Seule la valeur la plus élevée est utilisée. Minimum pour 60% : 54,55%.",
         lightTheme: "☀️ Thème clair",
         darkTheme:  "🌙 Thème sombre",
         emptyMain:  "Aucun calcul pour l'instant",
@@ -1087,17 +1042,6 @@
       document.getElementById("unoffTag").textContent = x.unofficial;
       document.getElementById("langSelect").value     = lang;
 
-      // Reverse mode elements
-      document.getElementById("modeFusion").textContent  = x.modeFusion;
-      document.getElementById("modeReverse").textContent = x.modeReverse;
-      const revLbl = document.querySelector("label[for='revTarget']");
-      if (revLbl) revLbl.textContent = x.revLbl;
-      const revInput = document.getElementById("revTarget");
-      if (revInput) revInput.placeholder = x.revPh;
-      if (currentMode === "reverse") {
-        document.getElementById("formulaText").innerHTML =
-          x.fLabel + ": <strong>" + x.revFormula + "</strong>";
-      }
 
       // Update theme button label in new language
       applyTheme(getTheme());
@@ -1127,54 +1071,7 @@
 
     // Clear red border on typing
 
-    // ─── MODE TOGGLE ────────────────────────────────────────────────
-    let currentMode = "fusion";
-    function setMode(mode) {
-      currentMode = mode;
-      document.getElementById("fusionInputs").style.display  = mode === "fusion"  ? "" : "none";
-      document.getElementById("reverseInputs").style.display = mode === "reverse" ? "" : "none";
-      document.getElementById("modeFusion").classList.toggle("active",  mode === "fusion");
-      document.getElementById("modeReverse").classList.toggle("active", mode === "reverse");
-      setResult(tr().emptyMain, tr().emptySub, "empty");
-      if (mode === "reverse") {
-        const x = tr();
-        document.getElementById("formulaText").innerHTML =
-          x.fLabel + ": <strong>" + x.revFormula + "</strong>";
-        setResult(x.emptyMain, x.revEmptySub, "empty");
-      } else {
-        applyLang();
-      }
-    }
 
-    // ─── REVERSE CALC ───────────────────────────────────────────────
-    function calcReverse() {
-      const raw = document.getElementById("revTarget").value;
-      let val;
-      try { val = parseVal(raw); } catch(e) {
-        setResult(tr().errMain, e.message, "error");
-        return;
-      }
-      const x   = tr();
-      const sep = x.comma ? "," : ".";
-      const threshold = 60 / 1.1; // ~54.5454...
-
-      if (val >= threshold) {
-        const result  = Math.min(val * 1.1, 60);
-        const mainTxt = result.toFixed(1).replace(".", sep) + " %";
-        const sub     = x.revWeakSub1 + val.toFixed(1).replace(".", sep) + x.revWeakSub2 + result.toFixed(1).replace(".", sep) + "%";
-        setResult(mainTxt, sub, "value");
-      } else {
-        const mainTxt = threshold.toFixed(2).replace(".", sep) + " %";
-        setResult(mainTxt, x.revStrongSub, "value");
-      }
-    }
-
-    function clearReverse() {
-      document.getElementById("revTarget").value = "";
-      setResult(tr().emptyMain, tr().emptySub, "empty");
-    }
-
-    document.getElementById("revTarget").addEventListener("keydown", e => { if (e.key === "Enter") calcReverse(); });
 
     // ─── CHECKLIST DATA ─────────────────────────────────────────────
     const WEAPONS = {
